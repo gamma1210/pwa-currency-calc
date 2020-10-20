@@ -41,30 +41,32 @@ workbox.routing.registerRoute(
     new workbox.strategies.StaleWhileRevalidate()
 );
 
-self.addEventListener('install', (event) => {
-    /**
-     * "Warm" the runtime cache
-     * https://developers.google.com/web/tools/workbox/guides/advanced-recipes#warm_the_runtime_cache
-     * 
-     * Since workbox.precaching.only works for build-time generated manifest entries, we use this "warm-up" method.
-     * https://github.com/GoogleChrome/workbox/issues/1612
-     */
-    const preCacheList = [
-        "/app",
-        '/img/arrows.svg',
-        '/img/airplane.svg',
-        '/img/attention.svg',
-        '/img/caret-down-48.png',
-        '/img/copy.svg',
-        '/img/checkmark.svg',
-        '/img/checkmark_black.svg',
-        '/img/lap.svg',
-        '/img/magnifyingglass_28R.png',
-        '/img/print.svg',
-        '/site_asset/logo',
-        '/site_asset/logo_footer',
-        '/dist/bundle-client.js'
-    ];
+console.log("1")
 
-    event.waitUntil(caches.open(workbox.core.cacheNames.runtime).then((cache) => cache.addAll(preCacheList)));
-});
+// self.addEventListener('install', (event) => {
+//     /**
+//      * "Warm" the runtime cache
+//      * https://developers.google.com/web/tools/workbox/guides/advanced-recipes#warm_the_runtime_cache
+//      * 
+//      * Since workbox.precaching.only works for build-time generated manifest entries, we use this "warm-up" method.
+//      * https://github.com/GoogleChrome/workbox/issues/1612
+//      */
+//     const preCacheList = [
+//         "/app",
+//         '/img/arrows.svg',
+//         '/img/airplane.svg',
+//         '/img/attention.svg',
+//         '/img/caret-down-48.png',
+//         '/img/copy.svg',
+//         '/img/checkmark.svg',
+//         '/img/checkmark_black.svg',
+//         '/img/lap.svg',
+//         '/img/magnifyingglass_28R.png',
+//         '/img/print.svg',
+//         '/site_asset/logo',
+//         '/site_asset/logo_footer',
+//         '/dist/bundle-client.js'
+//     ];
+
+//     event.waitUntil(caches.open(workbox.core.cacheNames.runtime).then((cache) => cache.addAll(preCacheList)));
+// });
